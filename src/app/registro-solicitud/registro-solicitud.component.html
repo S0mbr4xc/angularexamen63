@@ -1,0 +1,55 @@
+
+<h1>INGRESO DE SOLICITUDES</h1>
+
+<div class="signup-container">
+    <h2>Solicitud</h2>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="cedula">Cedula:</label>
+        <input id="cedula" formControlName="cedula" type="text" placeholder="Cedula" required>
+      </div>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre" type="text" placeholder="Nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input id="correo" formControlName="correo" type="text" placeholder="Correo" required>
+      </div>
+      <div class="form-group">
+        <label for="monto">Monto:</label>
+        <input id="monto" formControlName="monto" type="number" placeholder="Monto" required>
+      </div>
+      <div class="form-group">
+        <label for="meses">Meses:</label>
+        <input id="meses" formControlName="meses" type="number" placeholder="Meses" required>
+      </div>
+      <div class="form-actions">
+        <button type="submit" [disabled]="!signUpForm.valid">Registrarse</button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <h2>Lista de Cuotas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cuota Capital</th>
+          <th>Cuota Interés</th>
+          <th>Cuota Total</th>
+          <!-- Agrega más encabezados de columna según sea necesario -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cuota of cuotas">
+          <td>{{ cuota.id }}</td>
+          <td>{{ cuota.cuotaCapital }}</td>
+          <td>{{ cuota.cuotaInteres }}</td>
+          <td>{{ cuota.cuotaTotal }}</td>
+          <!-- Utiliza otros campos de tu objeto Cuota según sea necesario -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
